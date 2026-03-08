@@ -20,8 +20,8 @@ export const registerUser = asyncHandler(async (req, res) => {
   if (existedUser)
     throw new apiError(409, "user with email or username already exist!");
 
-  const avatarLocalPath = req.files?.avatar[0]?.path;
-  const coverImageLocalPath = req.files?.coverImage[0]?.path;
+  const avatarLocalPath = req.files?.avatar?.[0]?.path;
+  const coverImageLocalPath = req.files?.coverImage?.[0]?.path;
 
   if (!avatarLocalPath) {
     throw new apiError(400, "avatar file is required!");
