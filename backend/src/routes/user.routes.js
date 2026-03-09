@@ -2,6 +2,7 @@ import Router from "express";
 import {
   loginUser,
   logoutUser,
+  refreshAccessToken,
   registerUser,
 } from "../controllers/user.controller.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
@@ -25,5 +26,5 @@ userRouter.route("/register").post(
 
 userRouter.route("/login").post(loginUser);
 userRouter.route("/logout").post(verifyJWT, logoutUser);
-
+userRouter.route("/refresh_token").post(refreshAccessToken);
 export default userRouter;
